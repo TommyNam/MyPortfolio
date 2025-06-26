@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-export const Navbar = (menuOpen, setMenuOpen) => {
+export const Navbar = ({ menuOpen, setMenuOpen }) => {
     
 
     useEffect(() => {
@@ -13,31 +13,33 @@ export const Navbar = (menuOpen, setMenuOpen) => {
                     <a href="#home" className="font-mono text-xl font-bold text-white">
                         logoTommy<span className="text-blue-500">.tech </span> 
                         </a>
-
-                        <div className="w-7 h-5 relative cursos-pointer z-40 md:hidden"
-                            onClick={() => setMenuOpen((prev) => !prev)}
-                        >  
-                            &#9776;
-                        </div>
+                        
+                        {/* Mobile Menu Toggle (Hamburger Icon) - Shows only on small screens */}
+                        <div
+                        className={`w-15 h-5 relative cursor-pointer z-40 md:hidden ${menuOpen ? 'hidden' : ''}`}
+                        onClick={() => setMenuOpen((prev) => !prev)} // This will correctly toggle the menuOpen state
+                    >
+                        &#9776; {/* hamburger icon */}
+                    </div>
 
                     <div className="hidden md:flex items-center space-x-8">
                         <a href="#home" 
-                        className="tex-gray-300 hove:text-white transition-colors"> 
+                        className="text-gray-300 hover:text-white transition-colors"> 
                         Home 
                         </a>
 
                         <a href="#about" 
-                        className="tex-gray-300 hove:text-white transition-colors"> 
+                        className="text-gray-300 hover:text-white transition-colors"> 
                         About 
                         </a>
 
                         <a href="#projects" 
-                        className="tex-gray-300 hove:text-white transition-colors"> 
+                        className="text-gray-300 hover:text-white transition-colors"> 
                         Projects 
                         </a>
 
                         <a href="#contact" 
-                        className="tex-gray-300 hove:text-white transition-colors"> 
+                        className="text-gray-300 hover:text-white transition-colors"> 
                         contact
                         </a>
 
